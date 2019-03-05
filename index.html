@@ -11,7 +11,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="js/main.min.js"></script>
 	<!-- include A-Frame -->
-	<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+	<script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
 	<!-- include AR.js -->
     <script src="https://rawgit.com/jeromeetienne/AR.js/master/aframe/build/aframe-ar.min.js"></script>
     <!-- include Extra Loaders -->
@@ -25,14 +25,14 @@
 	<a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
 		
 	<a-assets>
-		<a-asset-item id="drone-asset" src="/models/scene.gltf"></a-asset-item>
+		<a-asset-item id="man-asset" src="/models/CesiumMan.gltf"></a-asset-item>
 	</a-assets>
 
     <a-marker-camera preset="hiro" emitevents="true" value='6'>
     	<!--Adding a glTF 2.0 model to your scene-->
     	<a-entity 
-    		id="drone" 
-    		gltf-model="#drone-asset"
+    		id="man" 
+    		gltf-model="#man-asset"
     		scale="2">
 	     </a-entity>
     </a-marker-camera> 
