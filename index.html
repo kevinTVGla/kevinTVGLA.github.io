@@ -3,16 +3,15 @@
 
 <head>
 	<meta charset="utf-8">
-	<!-- <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"> -->
 	<meta name="HandheldFriendly" content="true"/>
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
 	<title>HBO AR.js Prototype</title>
 
 	<link rel="stylesheet" href="css/main.min.css" />
-	<!--<script src="https://use.fontawesome.com/bac49b7ee8.js"></script>-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="js/main.min.js"></script>
+
 	<!-- include A-Frame -->
 	<script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
 	<!-- include AR.js -->
@@ -22,51 +21,27 @@
     <!-- import events.js script -->
     <script src="https://rawgit.com/nicolocarpignoli/nicolocarpignoli.github.io/master/ar-playground/events.js"></script>
     
-    <script src="/js/main.min.js"></script>
 </head>
 <body style="margin: 0; overflow: hidden;">
-	<!-- inflate.min.js for FBX --> 
 
 	<a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
 		
 	<a-assets>
-		<!-- <a-asset-item id="drone-asset" src="/models/scene.gltf"></a-asset-item> -->
-		<!-- <a-asset-item id="dragon-asset-glb" src="/models/dragon/dragon.glb"></a-asset-item> -->
-		<!-- <a-asset-item id="dragon-asset-fbx" src="/models/dragonloop/dragonloop.fbx"></a-asset-item> -->
+		<a-asset-item id="dragon-asset-gltf" src="/models/dragon_textured.gltf"></a-asset-item>
 	</a-assets>
 
-    <!-- <a-marker preset="hiro" emitevents="true" value='6'>
-    	<a-entity 
-    		id="drone" 
-    		position="0 0 0"
-    		gltf-model="#drone-asset"
-    		animation-mixer
-    		scale="0.01 0.01 0.01"
-    		>
-	     </a-entity>
-    </a-marker>  -->
-    <!-- type='pattern' patternUrl='/img/pattern-marker.patt' -->
+    
     <a-marker  preset="hiro" emitevents='true' value='6'>
     	<a-entity 
     		id="dragon" 
     		position="0 0 0"
-    		fbx-model="src: url(/models/dragonloop/dragonloop.fbx);"
+    		gltf-model="#dragon-asset-gltf"
     		animation-mixer
     		scale="0.1 0.1 0.1"
     		>
 	     </a-entity>
     </a-marker> 
 
-    <!-- <a-marker preset="hiro" emitevents="true" value='6'>
-    	<a-entity 
-    		id="dragon" 
-    		position="0 0 0"
-    		fbx-model="src: url(/models/dragonloop/dragon_loop.fbx);"
-    		animation-mixer
-    		scale="0.1 0.1 0.1"
-    		>
-	     </a-entity>
-    </a-marker>  -->
 
     <a-entity camera></a-entity>
 		
