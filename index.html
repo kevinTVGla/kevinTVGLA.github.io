@@ -31,13 +31,14 @@
 	</a-assets>
 
     
-    <a-marker  preset="hiro" emitevents='true' value='6'>
+    <a-marker id="dragon-marker" markerhandler preset="hiro" cursor="rayOrigin: mouse" emitevents='true' value='6'>
     	<a-entity 
     		id="dragon" 
     		position="0 0 0"
     		gltf-model="#dragon-asset-gltf"
     		animation-mixer
-    		scale="0.1 0.1 0.1"
+    		scale="1"
+    		dragonhandler
     		>
 	     </a-entity>
     </a-marker> 
@@ -47,6 +48,25 @@
 		
 	</a-scene>
 </body>
+<script type="text/javascript">
+	AFRAME.registerComponent("markerhandler", {
+	  init: function() {
+	    const dragonMarker = document.querySelector('#dragon-marker'); // your model
+	    
+	    dragonMarker.addEventListener('click', function(ev) {
+	    	if (dragonMarker.object3D.visible == true && ev.detail.cursorEl) {
+	    		const entity = document.querySelector('#dragon');
+	    		const scale = entity.getAttribute('scale');
+                Object.keys(scale).forEach((key) => scale[key] = scale[key] + 1);
+                
+                // every click, we make our model grow in size
+                entity.setAttribute('scale', scale);
+	    		
+	    	}
+	    })
+	  }
+	})
+</script>
 <script type="text/javascript">
 	AFRAME.registerComponent("listener", {
 	  init: function() {
