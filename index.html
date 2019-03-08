@@ -50,7 +50,7 @@
 	</a-scene>
 </body>
 <script type="text/javascript">
-	AFRAME.registerComponent("handler", {
+	AFRAME.registerComponent("dragonhandler", {
 	  init: function() {
 	    const dragonMarker = document.querySelector('#dragon-marker'); // your model
 	    
@@ -65,7 +65,6 @@
                 // every click, we make our model grow in size
                 entity.setAttribute('scale', scale);
 	    		
-	    		/*
 	    		let videoUrl = '/media/SampleVideo.mp4';
 	    		// Create a new asset
 				var new_asset = document.createElement('video');
@@ -81,7 +80,6 @@
 				aVideo.setAttribute('src', '#dynVid');
 				// Start playback
 				new_asset.play();
-				*/
 	    	}
 	    })
 	  }
