@@ -26,11 +26,12 @@
 
 	<a-scene embedded arjs='sourceType: webcam; debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;'>
 		
-	<a-assets>
+	<a-assets id="a-assets">
 		<a-asset-item id="dragon-asset-gltf" src="/models/dragon_textured.gltf"></a-asset-item>
 	</a-assets>
 
-    
+    <a-video id="a-video" position="0 0 0" geometry="width:3;height:1.5"></a-video>
+
     <a-marker id="dragon-marker" handler preset="hiro" cursor="rayOrigin: mouse" emitevents='true' value='6'>
     	<a-entity 
     		id="dragon" 
@@ -56,12 +57,30 @@
 	    dragonMarker.addEventListener('click', function(ev) {
 	    	if (dragonMarker.object3D.visible == true && ev.detail.cursorEl) {
 	    		const entity = document.querySelector('#dragon');
+	    		const aVideo = document.querySelector('#a-video');
+
 	    		const scale = entity.getAttribute('scale');
                 Object.keys(scale).forEach((key) => scale[key] = scale[key] + 0.1);
                 
                 // every click, we make our model grow in size
                 entity.setAttribute('scale', scale);
 	    		
+	    		// 
+	    		let videoUrl = '/media/SampleVideo.mp4';
+	    		// Create a new asset
+				var new_asset = document.createElement('video');
+				new_asset.setAttribute('id', 'dynVid'); // Create a unique id for asset
+				new_asset.setAttribute('allow', 'autoplay');
+				new_asset.setAttribute('loop', true);
+				new_asset.setAttribute('src', videoUrl);
+
+				// Append the new video to the a-assets, where a-assets id="assets-id"
+				document.getElementById('a-assets').appendChild(new_asset);
+
+				// Add the asset to the a-video
+				aVideo.setAttribute('src', '#dynVid');
+				// Start playback
+				new_asset.play();
 	    	}
 	    })
 	  }
