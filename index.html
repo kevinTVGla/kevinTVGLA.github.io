@@ -56,7 +56,6 @@
 	    dragonMarker.addEventListener('click', function(ev) {
 	    	if (dragonMarker.object3D.visible == true && ev.detail.cursorEl) {
 	    		const entity = document.querySelector('#dragon');
-	    		const aVideo = document.querySelector('#a-video');
 
 	    		const scale = entity.getAttribute('scale');
                 Object.keys(scale).forEach((key) => scale[key] = scale[key] + 0.01);
