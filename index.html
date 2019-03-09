@@ -37,7 +37,7 @@
     		position="0 0 0"
     		gltf-model="#dragon-asset-gltf"
     		animation-mixer
-    		scale="0.01 0.01 0.01"
+    		scale="0.1 0.1 0.1"
     		dragonhandler
     		>
 	     </a-entity>
@@ -57,15 +57,14 @@
 	    	if (dragonMarker.object3D.visible == true && ev.detail.cursorEl) {
 	    		const entity = document.querySelector('#dragon');
 
-	    		const scale = entity.getAttribute('scale');
-                Object.keys(scale).forEach((key) => scale[key] = scale[key] + 0.01);
+	    		// const scale = entity.getAttribute('scale');
+       //          Object.keys(scale).forEach((key) => scale[key] = scale[key] + 0.01);
                 
                 // every click, we make our model grow in size
-                entity.setAttribute('scale', scale);
+                // entity.setAttribute('scale', scale);
 	    		
                 // create new a-video
                 var aVideo = document.getElementById('a-video');
-                console.log(aVideo);
                 if (!aVideo) {
 	                var aVideo = document.createElement('a-video');
                 	dragonMarker.appendChild(aVideo);
