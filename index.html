@@ -32,7 +32,6 @@
 
 
     <a-marker id="dragon-marker" handler preset="hiro" cursor="rayOrigin: mouse" emitevents='true' value='6'>
-    	<a-video id="a-video" position="0 0 2" geometry="width:3;height:1.5"></a-video>
     	<a-entity 
     		id="dragon" 
     		position="0 0 0"
@@ -65,6 +64,13 @@
                 // every click, we make our model grow in size
                 entity.setAttribute('scale', scale);
 	    		
+                // create new a-video
+                let new aVideo = document.createElement('a-video');
+                aVideo.setAttribute('id','a-video');
+                aVideo.setAttribute('position','0 0 1');
+                aVideo.setAttribute('geometry','width:1;height:.5');
+                document.getElementById('dragon-marker').appendChild(aVideo);
+
 	    		let videoUrl = '/media/sampleVideo.mp4';
 	    		// Create a new asset
 				var new_asset = document.createElement('video');
