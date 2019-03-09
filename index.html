@@ -65,14 +65,16 @@
                 entity.setAttribute('scale', scale);
 	    		
                 // create new a-video
-                if (!document.getElementById('a-video')) {
-	                let aVideo = document.createElement('a-video');
+                var aVideo = document.getElementById('a-video');
+                console.log(aVideo);
+                if (!aVideo) {
+	                var aVideo = document.createElement('a-video');
+                	dragonMarker.appendChild(aVideo);
 	                aVideo.setAttribute('id','a-video');
 	                aVideo.setAttribute('position','0 0 1');
 	                aVideo.setAttribute('geometry','width:1;height:.5');
                 }
-                
-                document.getElementById('dragon-marker').appendChild(aVideo);
+
 
 	    		let videoUrl = '/media/sampleVideo.mp4';
 	    		// Create a new asset
