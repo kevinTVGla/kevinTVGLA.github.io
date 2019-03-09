@@ -40,7 +40,6 @@
     		animation-mixer
     		scale="0.01 0.01 0.01"
     		dragonhandler
-    		listener
     		>
 	     </a-entity>
     </a-marker> 
@@ -61,12 +60,12 @@
 	    		const aVideo = document.querySelector('#a-video');
 
 	    		const scale = entity.getAttribute('scale');
-                Object.keys(scale).forEach((key) => scale[key] = scale[key] + 0.1);
+                Object.keys(scale).forEach((key) => scale[key] = scale[key] + 0.01);
                 
                 // every click, we make our model grow in size
                 entity.setAttribute('scale', scale);
 	    		
-	    		let videoUrl = '/media/SampleVideo.mp4';
+	    		let videoUrl = '/media/sampleVideo.mp4';
 	    		// Create a new asset
 				var new_asset = document.createElement('video');
 				new_asset.setAttribute('id', 'dynVid'); // Create a unique id for asset
